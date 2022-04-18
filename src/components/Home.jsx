@@ -1,5 +1,16 @@
-export default function Home() {
+export default function Home({ stocks }) {
     return (
-        <div>Home</div>
+        <main className="Home">
+            {stocks.map( (stock, index) => (
+                <section key={index}>
+                    <h2>{ stock.name }</h2>
+                    <h3>{ stock.code }</h3>
+                    <div>
+                        Preço: { stock.price }€
+                    </div>
+                </section>
+            ))
+            }
+        </main>
     );
 }
