@@ -1,3 +1,5 @@
+import { NavLink } from "react-router-dom";
+
 export default function Home({ stocks }) {
     return (
         <main className="Home">
@@ -7,6 +9,9 @@ export default function Home({ stocks }) {
                     <h3>{ stock.code }</h3>
                     <div>
                         Preço: { stock.price }€
+                    </div>
+                    <div>
+                        <NavLink to={"/detail/" + stock.code}>Ver Detalhe</NavLink>
                     </div>
                 </section>
             ))
