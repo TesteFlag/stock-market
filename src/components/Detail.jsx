@@ -13,6 +13,13 @@ export default function Detail() {
 
   }, [params]);
 
+  function toggleFavorite() {
+    setStock( prevState => ({
+      ...prevState,
+      isFavorite: !prevState.isFavorite
+    }));
+  }
+
   return (
     <>
       {stock && (
@@ -21,6 +28,12 @@ export default function Detail() {
           <h3>{ stock.code }</h3>
           <div>
               Preço: { stock.price }€
+          </div>
+          <div>
+            <button onClick={toggleFavorite}>
+              {stock.isFavorite ? "Remover " : "Marcar "}
+              Favorito
+            </button>
           </div>
         </section>
       )}
